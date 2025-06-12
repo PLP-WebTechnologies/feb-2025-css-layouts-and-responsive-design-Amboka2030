@@ -1,26 +1,111 @@
-# CSS Layouts and Responsive Design
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Layout</title>
+  <style>
+    /* Reset & base styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-## Objectives
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+    }
 
-Implement Flexbox and Grid for layout design.
-Make the webpage responsive using media queries.
-Ensure proper alignment and spacing.
+    /* Navigation Bar (Flexbox) */
+    nav {
+      background: #333;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem;
+    }
 
-## Instructions
+    nav ul {
+      display: flex;
+      list-style: none;
+    }
 
-- use Flexbox or CSS Grid.
-- Add a navigation bar and structure the content.
-- Use media queries to adjust layout for mobile, tablet, and desktop.
+    nav ul li {
+      margin-left: 1rem;
+    }
 
->[!NOTE]
->  - Include at least:
->  - navigation bar
->  - media queries
+    nav a {
+      color: white;
+      text-decoration: none;
+    }
 
-# Tasks
+    /* Grid Layout */
+    .container {
+      display: grid;
+      grid-template-areas:
+        "main"
+        "sidebar";
+      gap: 1rem;
+      padding: 1rem;
+    }
 
-- Apply Flexbox or Grid for layout.
-- Make the page responsive.
-- Test across different screen sizes.
+    .main {
+      grid-area: main;
+      background: #f4f4f4;
+      padding: 1rem;
+    }
 
-Happy Coding! 💻✨
+    .sidebar {
+      grid-area: sidebar;
+      background: #ddd;
+      padding: 1rem;
+    }
+
+    /* Responsive Design with Media Queries */
+    @media (min-width: 600px) {
+      .container {
+        grid-template-areas: "main sidebar";
+        grid-template-columns: 2fr 1fr;
+      }
+    }
+
+    @media (min-width: 900px) {
+      nav {
+        padding: 1.5rem 3rem;
+      }
+
+      .container {
+        grid-template-columns: 3fr 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav>
+    <div class="logo">MySite</div>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Main Grid Layout -->
+  <div class="container">
+    <div class="main">
+      <h1>Welcome</h1>
+      <p>This is the main content area.</p>
+    </div>
+    <div class="sidebar">
+      <h2>Sidebar</h2>
+      
+    </div>
+  </div>
+
+</body>
+</html>
+
